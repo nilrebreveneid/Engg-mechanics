@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engineering Mechanics Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f9; }
+        h1 { color: #333; }
+        .question { margin-bottom: 20px; padding: 10px; background: #fff; border-radius: 5px; box-shadow: 0 0 5px #ccc; }
+        .feedback { margin-top: 5px; font-weight: bold; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        #result { margin-top: 30px; font-size: 20px; font-weight: bold; }
+        button { margin-top: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<h1>Engineering Mechanics Quiz</h1>
+<form id="quizForm">
+
+    <div class="question">
+        <p><strong>Q1. For maximum range of a projectile, the angle of projection should be:</strong></p>
+        <input type="radio" name="q0" value="A" onclick="checkAnswer(0, 'A')"> 90°<br>
+        <input type="radio" name="q0" value="B" onclick="checkAnswer(0, 'B')"> 45°<br>
+        <div id="feedback0" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q2. Rate of doing work is called:</strong></p>
+        <input type="radio" name="q1" value="A" onclick="checkAnswer(1, 'A')"> Power<br>
+        <input type="radio" name="q1" value="B" onclick="checkAnswer(1, 'B')"> Energy<br>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q3. The product of the moment of inertia and the angular acceleration is:</strong></p>
+        <input type="radio" name="q2" value="A" onclick="checkAnswer(2, 'A')"> Torque<br>
+        <input type="radio" name="q2" value="B" onclick="checkAnswer(2, 'B')"> Angular momentum<br>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q4. If a body is moving along a circular path of radius (r) and with angular acceleration (ϕ), then its linear acceleration is given by:</strong></p>
+        <input type="radio" name="q3" value="A" onclick="checkAnswer(3, 'A')"> ϕr<br>
+        <input type="radio" name="q3" value="B" onclick="checkAnswer(3, 'B')"> τ/ϕ<br>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q5. In curvilinear motion on a curve with a radius of curvature of ϕ, what is the normal component of acceleration?</strong></p>
+        <input type="radio" name="q4" value="A" onclick="checkAnswer(4, 'A')"> v²/ϕ<br>
+        <input type="radio" name="q4" value="B" onclick="checkAnswer(4, 'B')"> a²/ϕ<br>
+        <div id="feedback4" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q6. The friction experienced by an object at rest is:</strong></p>
+        <input type="radio" name="q5" value="A" onclick="checkAnswer(5, 'A')"> Static friction<br>
+        <input type="radio" name="q5" value="B" onclick="checkAnswer(5, 'B')"> Dynamic friction<br>
+        <div id="feedback5" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q7. Which is the false statement?</strong></p>
+        <input type="radio" name="q6" value="A" onclick="checkAnswer(6, 'A')"> Speed is a vector quantity<br>
+        <input type="radio" name="q6" value="B" onclick="checkAnswer(6, 'B')"> Acceleration is a vector quantity<br>
+        <div id="feedback6" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q8. Joule is the unit of:</strong></p>
+        <input type="radio" name="q7" value="A" onclick="checkAnswer(7, 'A')"> Energy<br>
+        <input type="radio" name="q7" value="B" onclick="checkAnswer(7, 'B')"> Power<br>
+        <div id="feedback7" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q9. Identify the pair which has same dimensions:</strong></p>
+        <input type="radio" name="q8" value="A" onclick="checkAnswer(8, 'A')"> Energy and work<br>
+        <input type="radio" name="q8" value="B" onclick="checkAnswer(8, 'B')"> Impulse and momentum<br>
+        <div id="feedback8" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q10. According to the law of conservation of energy:</strong></p>
+        <input type="radio" name="q9" value="A" onclick="checkAnswer(9, 'A')"> Energy can be transferred from one form to another<br>
+        <input type="radio" name="q9" value="B" onclick="checkAnswer(9, 'B')"> Energy can be destroyed<br>
+        <div id="feedback9" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q11. To every action there is equal and opposite reaction — this is:</strong></p>
+        <input type="radio" name="q10" value="A" onclick="checkAnswer(10, 'A')"> Newton’s third law of motion<br>
+        <input type="radio" name="q10" value="B" onclick="checkAnswer(10, 'B')"> Newton’s first law of motion<br>
+        <div id="feedback10" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q12. The force applied on a body of mass 100 kg to produce acceleration of 5 m/s² is:</strong></p>
+        <input type="radio" name="q11" value="A" onclick="checkAnswer(11, 'A')"> 500 N<br>
+        <input type="radio" name="q11" value="B" onclick="checkAnswer(11, 'B')"> 95 N<br>
+        <div id="feedback11" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q13. One Newton is the force that produces acceleration of:</strong></p>
+        <input type="radio" name="q12" value="A" onclick="checkAnswer(12, 'A')"> 1 m/s² in a mass of 1 kg<br>
+        <input type="radio" name="q12" value="B" onclick="checkAnswer(12, 'B')"> 1 m/s² in a mass of 1 gm<br>
+        <div id="feedback12" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q14. Which of the following physical quantities is not a vector quantity?</strong></p>
+        <input type="radio" name="q13" value="A" onclick="checkAnswer(13, 'A')"> Mass<br>
+        <input type="radio" name="q13" value="B" onclick="checkAnswer(13, 'B')"> Momentum<br>
+        <div id="feedback13" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q15. A body will move only when:</strong></p>
+        <input type="radio" name="q14" value="A" onclick="checkAnswer(14, 'A')"> Force of friction < Applied force<br>
+        <input type="radio" name="q14" value="B" onclick="checkAnswer(14, 'B')"> Force of friction = Applied force<br>
+        <div id="feedback14" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q16. Following term is not a vector quantity:</strong></p>
+        <input type="radio" name="q15" value="A" onclick="checkAnswer(15, 'A')"> Speed<br>
+        <input type="radio" name="q15" value="B" onclick="checkAnswer(15, 'B')"> Velocity<br>
+        <div id="feedback15" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q17. The center of gravity of a plane will not be at its geometrical center if it is a:</strong></p>
+        <input type="radio" name="q16" value="A" onclick="checkAnswer(16, 'A')"> Right-angled triangle<br>
+        <input type="radio" name="q16" value="B" onclick="checkAnswer(16, 'B')"> Circle<br>
+        <div id="feedback16" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q18. If the velocity of 1 m/sec is accelerated by 1 m/sec², then the velocity after 1 sec will be:</strong></p>
+        <input type="radio" name="q17" value="A" onclick="checkAnswer(17, 'A')"> 2 m/sec<br>
+        <input type="radio" name="q17" value="B" onclick="checkAnswer(17, 'B')"> 1 m/sec<br>
+        <div id="feedback17" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q19. Velocity ratio of simple wheel and axle with diameters d and D is:</strong></p>
+        <input type="radio" name="q18" value="A" onclick="checkAnswer(18, 'A')"> D/d<br>
+        <input type="radio" name="q18" value="B" onclick="checkAnswer(18, 'B')"> d/D<br>
+        <div id="feedback18" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q20. Force acting on a mass of one gramme creating acceleration of one cm/sec² is called:</strong></p>
+        <input type="radio" name="q19" value="A" onclick="checkAnswer(19, 'A')"> Dyne<br>
+        <input type="radio" name="q19" value="B" onclick="checkAnswer(19, 'B')"> Newton<br>
+        <div id="feedback19" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q21. Centre gravity of triangle lies at:</strong></p>
+        <input type="radio" name="q20" value="A" onclick="checkAnswer(20, 'A')"> Concurrence of the medians<br>
+        <input type="radio" name="q20" value="B" onclick="checkAnswer(20, 'B')"> Intersection of angle bisectors<br>
+        <div id="feedback20" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q22. Which of the following does not meet and do not lie in the same plane?</strong></p>
+        <input type="radio" name="q21" value="A" onclick="checkAnswer(21, 'A')"> Non-coplanar non-concurrent force<br>
+        <input type="radio" name="q21" value="B" onclick="checkAnswer(21, 'B')"> Coplanar concurrent force<br>
+        <div id="feedback21" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q23. If all the three forces act on a body and keep it in equilibrium, the forces need to be:</strong></p>
+        <input type="radio" name="q22" value="A" onclick="checkAnswer(22, 'A')"> Concurrent<br>
+        <input type="radio" name="q22" value="B" onclick="checkAnswer(22, 'B')"> Parallel<br>
+        <div id="feedback22" class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p><strong>Q24. The minimum effort in a system constitutes a principle of:</strong></p>
+        <input type="radio" name="q23" value="A" onclick="checkAnswer(23, 'A')"> Lifting of a load<br>
+        <input type="radio" name="q23" value="B" onclick="checkAnswer(23, 'B')"> Taking off an aircraft<br>
+        <div id="feedback23" class="feedback"></div>
+    </div>
+    
+<button type="button" onclick="showScore()">Submit Quiz</button>
+<div id="result"></div>
+</form>
+
+<script>
+    const answers = ['B', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A'];
+    let score = 0;
+    let answered = Array(answers.length).fill(false);
+
+    function checkAnswer(qIndex, selected) {
+        const feedback = document.getElementById('feedback' + qIndex);
+        if (selected === answers[qIndex]) {
+            feedback.textContent = "Correct!";
+            feedback.className = "feedback correct";
+            if (!answered[qIndex]) {
+                score++;
+                answered[qIndex] = true;
+            }
+        } else {
+            feedback.textContent = "Wrong!";
+            feedback.className = "feedback incorrect";
+            if (answered[qIndex]) {
+                score--;
+                answered[qIndex] = false;
+            }
+        }
+    }
+
+    function showScore() {
+        document.getElementById('result').textContent = "Your final score is: " + score + " out of " + answers.length;
+    }
+</script>
+
+</body>
+</html>
